@@ -11,14 +11,20 @@ module.exports = {
     "gatsby-plugin-image",
     "gatsby-plugin-sitemap",
     "gatsby-plugin-sharp",
+    "gatsby-plugin-typescript",
     "gatsby-transformer-sharp",
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
-        path: "./src/images/",
+        path: "./src/assets/images/",
       },
       __key: "images",
+      options: {
+        name: "fonts",
+        path: "./src/assets/fonts/",
+      },
+      __key: "fonts",
     },
   ],
 };
