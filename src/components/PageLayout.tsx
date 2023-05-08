@@ -1,10 +1,10 @@
 import React from "react";
 
-import { ReactComponent as Logo } from "../assets/images/logo.svg";
-import { ReactComponent as LogoSmall } from "../assets/images/logo-small.svg";
-import { ReactComponent as TwitterIcon } from "../assets/images/social-icons/twitter.svg";
-import { ReactComponent as InstagramIcon } from "../assets/images/social-icons/instagram.svg";
-import { ReactComponent as FacebookIcon } from "../assets/images/social-icons/facebook.svg";
+import Logo from "../assets/images/logo.svg";
+import LogoSmall from "../assets/images/logo-small.svg";
+import TwitterIcon from "../assets/images/social-icons/twitter.svg";
+import InstagramIcon from "../assets/images/social-icons/instagram.svg";
+import FacebookIcon from "../assets/images/social-icons/facebook.svg";
 
 const Header = () => (
   <nav className="nav">
@@ -104,12 +104,12 @@ const Footer = () => {
   );
 };
 
-const PageLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+export const PageLayout: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => (
   <article>
     <Header />
     {children}
     <Footer />
   </article>
 );
-
-export default PageLayout;
