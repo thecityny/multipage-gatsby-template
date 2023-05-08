@@ -1,7 +1,7 @@
 {
   "ci": {
     "collect": {
-      "staticDistDir": "./build",
+      "staticDistDir": "./public",
       "autodiscoverUrlBlocklist": [],
       "settings": {
         "skipAudits": ["canonical"]
@@ -9,9 +9,9 @@
     },
     "assert": {
       "assertions": {
-        "categories:performance": ["error", { "minScore": 0.50 }],
+        "categories:performance": ["error", { "minScore": 0.5 }],
         "categories:accessibility": ["error", { "minScore": 1 }],
-        "categories:best-practices": ["error", { "minScore": 0.50 }],
+        "categories:best-practices": ["error", { "minScore": 0.5 }],
         "categories:seo": ["error", { "minScore": 1 }]
       }
     }
