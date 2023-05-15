@@ -143,7 +143,7 @@ jobs:
         with:
           bucket: ${{ secrets.AWS_S3_STAGING_BUCKET }}
           base-path: ${{ steps.delivery-path-prefix.outputs.result }}
-          dir: public
+          dir: build
           should-cache: true
           use-accelerate-endpoint: false
           public: true
