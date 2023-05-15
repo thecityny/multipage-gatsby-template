@@ -6,11 +6,15 @@ const fs = require("fs");
 
 exports.onPreInit = () => {
   if (process.argv[2] === "build") {
-    fs.rmdirSync(path.join(__dirname, "build"), { recursive: true });
-    fs.renameSync(
-      path.join(__dirname, "public"),
-      path.join(__dirname, "public_dev")
-    );
+    if (fs.existsSync(path.join(__dirname, "build"))) {
+      fs.rmdirSync(path.join(__dirname, "build"), { recursive: true });
+    }
+    if (fs.existsSync(path.join(__dirname, "public"))) {
+      fs.renameSync(
+        path.join(__dirname, "public"),
+        path.join(__dirname, "public_dev")
+      );
+    }
   }
 };
 
