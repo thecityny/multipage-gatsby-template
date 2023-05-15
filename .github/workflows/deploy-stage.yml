@@ -93,7 +93,7 @@ jobs:
           result-encoding: string
           script: |
             // Print out production slug:
-            const slug = `${{ env.REACT_APP_SLUG }}`;
+            const slug = `${{ env.GATSBY_SLUG }}`;
             console.log(`production slug will be -> ${slug.trim()}`);
 
             // import path module

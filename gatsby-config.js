@@ -11,6 +11,7 @@ module.exports = {
     "gatsby-plugin-image",
     "gatsby-plugin-sitemap",
     "gatsby-plugin-sharp",
+    "gatsby-plugin-react-helmet",
     "gatsby-plugin-typescript",
     "gatsby-transformer-sharp",
     {

@@ -1,8 +1,6 @@
 import React from "react";
 import { PageLayout } from "../components/PageLayout";
 
-import "../styles/app.scss";
-
 const byline = [
   {
     name: "This is not a name",

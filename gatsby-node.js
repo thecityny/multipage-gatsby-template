@@ -1,6 +1,11 @@
 const path = require("path");
 const fs = require("fs");
 
+/**
+ * Use this setup to dynamically create new pages on build. Each page will have the
+ * path specified in `createPage` below, as well as any other property passed along
+ * to it inside the `context` argument.
+ */
 const dynamicPageContent = [
   {
     slug: "page1",

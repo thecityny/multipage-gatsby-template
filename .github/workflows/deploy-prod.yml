@@ -69,7 +69,7 @@ jobs:
           result-encoding: string
           script: |
             // Pull the slug
-            const slug = `${{ env.REACT_APP_SLUG }}`;
+            const slug = `${{ env.GATSBY_SLUG }}`;
             console.log(`slug -> ${slug}`);
 
             // If we get this far, we're good to go.
