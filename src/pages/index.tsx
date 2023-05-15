@@ -1,12 +1,9 @@
 import React from "react";
 import { PageLayout } from "../components/PageLayout";
 
-const byline = [
-  {
-    name: "This is not a name",
-    url: "https://www.latimes.com/people/nobody",
-  },
-];
+const byline = process.env.GATSBY_AUTHOR
+  ? JSON.parse(process.env.GATSBY_AUTHOR)
+  : ([] as any);
 
 const Homepage = () => (
   <PageLayout>
@@ -16,7 +13,7 @@ const Homepage = () => (
         <div className="attribution">
           <p className="byline">
             By{" "}
-            {byline.map((author, i) => (
+            {byline.map((author: any, i: number) => (
               <span key={i} className="author">
                 <a href={author.url}>{author.name}</a>
                 {i < byline.length - 2
