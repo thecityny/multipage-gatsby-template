@@ -1,10 +1,8 @@
 import React from "react";
 import { PageLayout } from "./PageLayout";
-import { Helmet } from "react-helmet";
 
 const ExamplePage: React.FC<{ pageContext: any }> = ({ pageContext }) => (
-  <PageLayout>
-    <Helmet title={pageContext.title} defer={false} />
+  <PageLayout customMetadata={{ siteName: pageContext.title }}>
     <div>
       <div className="container">
         <h1 className="headline">{pageContext.title}</h1>
