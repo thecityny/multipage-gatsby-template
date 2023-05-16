@@ -33,7 +33,7 @@ module.exports = {
       options: {
         custom: {
           families: ["Sharp Grotesk"],
-          urls: [`/${process.env.PREFIX}/fonts/font-files.css`],
+          urls: [`./${process.env.PREFIX}/fonts/font-files.css`],
         },
       },
     },
