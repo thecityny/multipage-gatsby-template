@@ -33,57 +33,63 @@ jobs:
       - name: npm install
         run: npm ci --production
 
+      - name: Prepare the Delivery path prefix
+        uses: actions/github-script@v6
+        id: delivery-path-prefix
+        with:
+          result-encoding: string
+          script: |
+            // Print out production slug:
+            const slug = `${{ env.GATSBY_SLUG }}`;
+            console.log(`production slug will be -> ${slug.trim()}`);
+
+            // import path module
+            const path = require('path');
+
+            // get reference to this commit
+            const ref = context.ref;
+
+            // get repo that triggered this push
+            const { repo } = context.repo;
+
+            // pull branch name off the ref
+            const parts = ref.split('/');
+            const branch = parts[parts.length - 1];
+
+            // build path used for this deploy
+            const basePath = path.join(repo, branch);
+
+            // return the prepared path as the output
+            return basePath;
+
       - name: Build the project
-        run: npm run build
+        run: PREFIX=/${{ steps.delivery-path-prefix.outputs.result }} npm run build
 
       - name: Upload build
         uses: actions/upload-artifact@v3
         with:
           name: build
-          path: ./public
+          path: ./build
           if-no-files-found: error
 
-  # validate-hyperlinks:
-  #   runs-on: ubuntu-latest
-  #   name: Validate hyperlinks
-  #   needs: [build]
-  #   continue-on-error: true
+  validate-hyperlinks:
+    runs-on: ubuntu-latest
+    name: Validate hyperlinks
+    needs: [build]
+    continue-on-error: true
 
-  #   steps:
-  #     - name: Download build
-  #       uses: actions/download-artifact@v3
-  #       with:
-  #         name: build
-  #         path: ./public
+    steps:
+      - name: Download build
+        uses: actions/download-artifact@v3
+        with:
+          name: build
+          path: ./build
 
-  #     - name: Install link check dependencies
-  #       run: pip install pytest-check-links pytest-custom_exit_code
+      - name: Install link check dependencies
+        run: pip install pytest-check-links pytest-custom_exit_code
 
-  #     - name: Check links
-  #       run: pytest ./public --suppress-no-test-exit-code -p no:cacheprovider --check-links --check-links-ignore "/"
-
-  # validate-lighthouse:
-  #   runs-on: ubuntu-latest
-  #   name: Validate with Lighthouse
-  #   needs: [build]
-  #   continue-on-error: true
-
-  #   steps:
-  #     - name: Fetch repository for `lighthouserc.json`
-  #       uses: actions/checkout@v3
-
-  #     - name: Download build
-  #       uses: actions/download-artifact@v3
-  #       with:
-  #         name: build
-  #         path: ./public
-
-  #     - name: Audit with Lighthouse
-  #       uses: treosh/lighthouse-ci-action@v9
-  #       with:
-  #         configPath: ".github/workflows/lighthouserc.json"
-  #         temporaryPublicStorage: true
-  #         uploadArtifacts: true
+      - name: Check links
+        run: pytest ./build --suppress-no-test-exit-code -p no:cacheprovider --check-links --check-links-ignore "/"
 
   deploy:
     name: Deploy
@@ -94,7 +100,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: build
-          path: ./public
+          path: ./build
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -116,7 +122,7 @@ jobs:
           result-encoding: string
           script: |
             // Print out production slug:
-            const slug = `${{ env.REACT_APP_SLUG }}`;
+            const slug = `${{ env.GATSBY_SLUG }}`;
             console.log(`production slug will be -> ${slug.trim()}`);
 
             // import path module
@@ -143,7 +149,7 @@ jobs:
         with:
           bucket: ${{ secrets.AWS_S3_STAGING_BUCKET }}
           base-path: ${{ steps.delivery-path-prefix.outputs.result }}
-          dir: public
+          dir: build
           should-cache: true
           use-accelerate-endpoint: false
           public: true
