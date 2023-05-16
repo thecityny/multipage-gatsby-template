@@ -44,11 +44,6 @@ module.exports = {
         path: "./src/assets/images/",
       },
       __key: "images",
-      options: {
-        name: "fonts",
-        path: "static/fonts/",
-      },
-      __key: "fonts",
     },
   ],
 };
