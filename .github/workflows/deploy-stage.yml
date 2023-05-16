@@ -63,7 +63,7 @@ jobs:
             return basePath;
 
       - name: Build the project
-        run: PREFIX=${{ steps.delivery-path-prefix.outputs.result }} gatsby build
+        run: PREFIX=/${{ steps.delivery-path-prefix.outputs.result }} npm run build
 
       - name: Upload build
         uses: actions/upload-artifact@v3
