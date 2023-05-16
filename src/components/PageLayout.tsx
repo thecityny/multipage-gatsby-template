@@ -133,7 +133,7 @@ export const PageLayout: React.FC<{
   const url = `${process.env.GATSBY_DOMAIN}${slug}`;
 
   const siteName = customMetadata?.siteName || process.env.GATSBY_SITE_NAME;
-  const shareImage = customMetadata?.shareImage || "/social-image.jpg";
+  const shareImage = customMetadata?.shareImage || "social-image.jpg";
   const seoHeadline =
     customMetadata?.seoHeadline || process.env.GATSBY_SEO_HEADLINE;
   const seoDescription =
