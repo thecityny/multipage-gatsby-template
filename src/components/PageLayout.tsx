@@ -110,7 +110,10 @@ const Footer = () => {
 type MetadataProps = {
   slug?: string;
   siteName?: string;
-  shareImage?: string;
+  /**
+   * This should be the filename of an image in the `/static` directory in the root.
+   */
+  shareImageFilename?: string;
   seoHeadline?: string;
   seoDescription?: string;
   socialHeadline?: string;
@@ -133,7 +136,9 @@ export const PageLayout: React.FC<{
   const url = `${process.env.GATSBY_DOMAIN}${slug}`;
 
   const siteName = customMetadata?.siteName || process.env.GATSBY_SITE_NAME;
-  const shareImage = customMetadata?.shareImage || "social-image.jpg";
+  const shareImage = `${process.env.GATSBY_DOMAIN}${process.env.GATSBY_SLUG}/${
+    customMetadata?.shareImageFilename || "social-image.jpg"
+  }`;
   const seoHeadline =
     customMetadata?.seoHeadline || process.env.GATSBY_SEO_HEADLINE;
   const seoDescription =
