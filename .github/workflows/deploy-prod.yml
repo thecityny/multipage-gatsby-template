@@ -86,7 +86,7 @@ jobs:
 
       - id: npm-build
         name: Build project distribution
-        run: npm run build
+        run: PREFIX=/${{ env.GATSBY_SLUG }} npm run build
         env:
           PATH_PREFIX: ${{ steps.get-slug.outputs.result }}
 
