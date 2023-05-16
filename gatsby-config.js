@@ -29,15 +29,6 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-web-font-loader",
-      options: {
-        custom: {
-          families: ["Sharp Grotesk"],
-          urls: [`./${process.env.PREFIX}/fonts/font-files.css`],
-        },
-      },
-    },
-    {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
