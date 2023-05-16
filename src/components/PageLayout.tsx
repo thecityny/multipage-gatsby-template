@@ -133,6 +133,7 @@ export const PageLayout: React.FC<{
   const url = `${process.env.GATSBY_DOMAIN}${slug}`;
 
   const siteName = customMetadata?.siteName || process.env.GATSBY_SITE_NAME;
+  const shareImage = customMetadata?.shareImage || "/social-image.jpg";
   const seoHeadline =
     customMetadata?.seoHeadline || process.env.GATSBY_SEO_HEADLINE;
   const seoDescription =
@@ -154,7 +155,7 @@ export const PageLayout: React.FC<{
         <meta property="og:title" content={socialHeadline} />
         <meta property="og:description" content={socialDescription} />
         <meta property="og:url" content={url} />
-        {/* <meta property="og:image" content={process.env.GATSBY_DOMAIN%%GATSBY_SLUG%} /> */}
+        <meta property="og:image" content={shareImage} />
         <meta property="og:type" content="article" />
         <meta property="og:site_name" content={siteName} />
         <meta property="og:locale" content="en-US" />
@@ -162,7 +163,7 @@ export const PageLayout: React.FC<{
         <meta property="twitter:title" content={socialHeadline} />
         <meta property="twitter:description" content={socialDescription} />
         <meta property="twitter:url" content={url} />
-        {/* <meta property="twitter:image" content={process.env.GATSBY_DOMAIN%%GATSBY_SLUG%/social-image.jpg" /> */}
+        <meta property="twitter:image" content={shareImage} />
         <meta property="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">
           {JSON.stringify({
@@ -171,8 +172,8 @@ export const PageLayout: React.FC<{
             headline: { seoHeadline },
             image: {
               "@type": "ImageObject",
-              //"contentUrl": {process.env.GATSBY_DOMAIN%%GATSBY_SLUG%/social-image.jpg",
-              //"url": {process.env.GATSBY_DOMAIN%%GATSBY_SLUG%/social-image.jpg",
+              contentUrl: { shareImage },
+              url: { shareImage },
               representativeOfPage: true,
             },
             dateCreated: `${process.env.GATSBY_PUB_DATE}`,
