@@ -11,7 +11,7 @@ module.exports = {
     title: `multipage-gatsby-template`,
     siteUrl: `https://www.yourdomain.tld`,
   },
-  pathPrefix: "/multipage-gatsby-template/fix",
+  pathPrefix: process.env.PREFIX,
   plugins: [
     "gatsby-plugin-sass",
     "gatsby-plugin-image",

@@ -33,8 +33,37 @@ jobs:
       - name: npm install
         run: npm ci --production
 
+      - name: Prepare the Delivery path prefix
+        uses: actions/github-script@v6
+        id: delivery-path-prefix
+        with:
+          result-encoding: string
+          script: |
+            // Print out production slug:
+            const slug = `${{ env.GATSBY_SLUG }}`;
+            console.log(`production slug will be -> ${slug.trim()}`);
+
+            // import path module
+            const path = require('path');
+
+            // get reference to this commit
+            const ref = context.ref;
+
+            // get repo that triggered this push
+            const { repo } = context.repo;
+
+            // pull branch name off the ref
+            const parts = ref.split('/');
+            const branch = parts[parts.length - 1];
+
+            // build path used for this deploy
+            const basePath = path.join(repo, branch);
+
+            // return the prepared path as the output
+            return basePath;
+
       - name: Build the project
-        run: npm run build
+        run: PREFIX=${{ steps.delivery-path-prefix.outputs.result }} gatsby build
 
       - name: Upload build
         uses: actions/upload-artifact@v3
