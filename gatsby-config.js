@@ -12,6 +12,7 @@ module.exports = {
     siteUrl: `https://www.yourdomain.tld`,
   },
   pathPrefix: process.env.PREFIX,
+  assetPrefix: process.env.PREFIX,
   plugins: [
     "gatsby-plugin-sass",
     "gatsby-plugin-image",
