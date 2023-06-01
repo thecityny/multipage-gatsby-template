@@ -9,7 +9,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `multipage-gatsby-template`,
-    siteUrl: `https://www.yourdomain.tld`,
+    siteUrl: `${process.env.GATSBY_DOMAIN}${process.env.GATSBY_SLUG}`,
   },
   pathPrefix: process.env.PREFIX,
   plugins: [
