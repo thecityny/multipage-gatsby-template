@@ -157,6 +157,7 @@ export const PageLayout: React.FC<{
         <meta name="theme-color" content="#000000" />
         <meta name="description" content={seoDescription} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="canonical" href={url} />
         <meta property="og:title" content={socialHeadline} />
         <meta property="og:description" content={socialDescription} />
         <meta property="og:url" content={url} />
@@ -164,36 +165,36 @@ export const PageLayout: React.FC<{
         <meta property="og:type" content="article" />
         <meta property="og:site_name" content={siteName} />
         <meta property="og:locale" content="en-US" />
-
         <meta property="twitter:title" content={socialHeadline} />
         <meta property="twitter:description" content={socialDescription} />
         <meta property="twitter:url" content={url} />
         <meta property="twitter:image" content={shareImage} />
         <meta property="twitter:card" content="summary_large_image" />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "http://schema.org",
-            "@type": "NewsArticle",
-            headline: { seoHeadline },
-            image: {
+
+        <script type="application/ld+json">{`{
+          "@type": "NewsArticle",
+          "@context": "http://schema.org",
+
+          "headline": "${seoHeadline}",
+          "image": {
               "@type": "ImageObject",
-              contentUrl: { shareImage },
-              url: { shareImage },
-              representativeOfPage: true,
-            },
-            dateCreated: `${process.env.GATSBY_PUB_DATE}`,
-            datePublished: `${process.env.GATSBY_PUB_DATE}`,
-            dateModified: `${process.env.GATSBY_UPDATE_DATE}`,
-            mainEntityOfPage: { url },
-            description: { seoDescription },
-            publisher: {
+              "contentUrl": "${shareImage}",
+              "url": "${shareImage}",
+              "representativeOfPage": ${true}
+          },
+          "dateCreated": "${process.env.GATSBY_PUB_DATE}",
+          "datePublished": "${process.env.GATSBY_PUB_DATE}",
+          "dateModified": "${process.env.GATSBY_UPDATE_DATE}",
+          "articleSection": "News Apps",
+          "mainEntityOfPage": "${url}",
+          "description": "${seoDescription}",
+          "publisher": {
               "@type": "Organization",
-              name: { siteName },
-              url: "https://www.thecity.nyc/",
-            },
-            author: { author },
-          })}
-        </script>
+              "name": "THE CITY",
+              "url": "https://www.thecity.nyc/"
+          },
+          "author": ${author}
+        }`}</script>
       </Helmet>
       {children}
       <Footer />
