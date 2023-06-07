@@ -4,34 +4,38 @@
   </a>
 </p>
 <h1 align="center">
-  Gatsby Minimal Starter
+  Full-page Gatsby + React template for THE CITY News Apps
 </h1>
 
-## 🚀 Quick start
+## 🚀 Creating a new app
 
-1.  **Create a Gatsby site.**
+The first step is to click GitHub’s “use this template” button to a make a copy of the repository for yourself.
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+![](./.github/images/use-this-template.png)
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+You’ll be asked to provide a slug for your project. Once that’s done, a new repository will be available at `https://github.com/your-username/your-slug`.
 
-2.  **Start developing.**
+Next you’ll need to clone it down to your computer to work with the code.
 
-    Navigate into your new site’s directory and start it up.
+Open up your terminal and cd to your code folder. Clone the project into your folder. This will copy the project onto your computer.
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+```sh
+gh repo clone https://github.com/your-username/your-slug
+```
 
-3.  **Open the code and start customizing!**
+Once the repository has finished downloading, cd into your-slug and install the Node.js dependencies.
 
-    Your site is now running at http://localhost:8000!
+```sh
+npm install
+```
 
-    Edit `src/pages/index.js` to see your site update in real-time!
+Once the dependencies have been installed, you’re ready to preview the project. Run the following to start the test server.
+
+```sh
+npm start
+```
+
+Now go to `localhost:8000` in your browser. You should see a boilerplate page ready for your customizations.
 
 4.  **Learn more**
 
