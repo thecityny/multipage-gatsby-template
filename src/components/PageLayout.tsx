@@ -133,7 +133,7 @@ export const PageLayout: React.FC<{
   customMetadata?: MetadataProps;
 }> = ({ children, customMetadata }) => {
   const slug = customMetadata?.slug || process.env.GATSBY_SLUG;
-  const url = `${process.env.GATSBY_DOMAIN}${slug}`;
+  const url = `${process.env.GATSBY_DOMAIN}${slug}/`;
 
   const siteName = customMetadata?.siteName || process.env.GATSBY_SITE_NAME;
   const shareImage = `${process.env.GATSBY_DOMAIN}${process.env.GATSBY_SLUG}/${
