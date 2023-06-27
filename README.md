@@ -4,7 +4,7 @@
 
 This template is what we use to create multi-page interactive projects, and it is bootstrapped with [Gatsby](https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter). The deployment process is based in part on the [Baker Rig](https://github.com/datadesk/baker) project by the L.A. Times. 
 
-If you're looking to build a simple one-page app instead, you may want to check out our [Full-page React Template](https://github.com/thecityny/fullpage-react-template) instead.
+If you're looking to build a simple one-page app, you may want to check out our [Full-page React Template](https://github.com/thecityny/fullpage-react-template) instead.
 
 ## 🚀 Getting started
 
