@@ -1,7 +1,6 @@
 import React from "react";
 
 import Logo from "../assets/images/logo.svg";
-import LogoSmall from "../assets/images/logo-small.svg";
 import TwitterIcon from "../assets/images/social-icons/twitter.svg";
 import InstagramIcon from "../assets/images/social-icons/instagram.svg";
 import FacebookIcon from "../assets/images/social-icons/facebook.svg";
@@ -33,9 +32,10 @@ const Footer = () => {
   return (
     <footer className="container">
       <div className="footer">
-        <div className="footer-logo">
+        <div className="footer-credit">
+          Made with ♥ in NYC by{" "}
           <a href="https://thecity.nyc/" aria-label="THE CITY">
-            <LogoSmall />
+            THE CITY
           </a>
         </div>
         <div className="footer-icons">
