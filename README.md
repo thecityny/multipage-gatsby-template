@@ -1,8 +1,10 @@
-# THE CITY's Multi-page React Template for News Apps
+# THE CITY's Multi-page Gatsby Template for News Apps
 
 [THE CITY](https://www.thecity.nyc/pages/about) is a nonprofit, nonpartisan, digital newsroom dedicated to hard-hitting reporting that serves the people of New York. We publish news apps and data graphics regularly, and we try and open source as much of our code as we can so that others can use it. You can check out a list of our recent projects on [THE CITY Projects Page](https://projects.thecity.nyc/all-projects/).
 
-This template is what we use to create multi-page interactive projects, and it is bootstrapped with [Gatsby](https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter). The deployment process is based in part on the [Baker Rig](https://github.com/datadesk/baker) project by the L.A. Times.
+This template is what we use to create multi-page interactive projects, and it is bootstrapped with [Gatsby](https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter). The deployment process is based in part on the [Baker Rig](https://github.com/datadesk/baker) project by the L.A. Times. 
+
+If you're looking to build a simple one-page app instead, you may want to check out our [Full-page React Template](https://github.com/thecityny/fullpage-react-template) instead.
 
 ## 🚀 Getting started
 
