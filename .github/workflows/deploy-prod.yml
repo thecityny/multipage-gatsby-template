@@ -22,10 +22,10 @@ jobs:
         uses: xom9ikk/dotenv@v2
 
       - id: install-node
-        name: Install Node.js 18.x
+        name: Install Node.js 21.x
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 21
           cache: "npm"
 
       - id: install-project-modules
@@ -52,10 +52,10 @@ jobs:
         uses: xom9ikk/dotenv@v2
 
       - id: install-node
-        name: Install Node.js 18.x
+        name: Install Node.js 21.x
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 21
           cache: "npm"
 
       - id: install-project-modules

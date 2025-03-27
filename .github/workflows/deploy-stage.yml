@@ -24,10 +24,10 @@ jobs:
         uses: xom9ikk/dotenv@v2
 
       - id: install-node
-        name: Install Node.js 18.x
+        name: Install Node.js 21.x
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 21
           cache: "npm"
 
       - name: npm install
@@ -80,7 +80,7 @@ jobs:
 
     steps:
       - name: Download build
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: build
           path: ./build
@@ -97,7 +97,7 @@ jobs:
     needs: [build]
     steps:
       - name: Download build
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: build
           path: ./build
